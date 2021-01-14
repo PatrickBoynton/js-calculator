@@ -1,31 +1,18 @@
-// First Row
-const calculator = document.querySelector(".calculator");
+const numbers = document.querySelectorAll(".number");
+const operators = document.querySelectorAll(".operator");
 
-const calculatorScreen = document.querySelector("input");
-const clear = document.querySelector(".clear");
-const plusMinus = document.querySelector(".plus-minus");
-const percent = document.querySelector(".percent");
-const divide = document.querySelector("[value='/']");
+function pushNumber(e) {
+    alert(e.target.value);
+}
 
-// Second Row
-const seven = document.querySelector("[value='7']");
-const eight = document.querySelector("[value='8']");
-const nine = document.querySelector("[value='9']");
-const times = document.querySelector("[value='*']");
+function pushOperator(e) {
+    alert(e.target.value);
+}
 
-//Third Row
-const four = document.querySelector("[value='4']");
-const five = document.querySelector("[value='5']");
-const six = document.querySelector("[value='6']");
-const minus = document.querySelector("[value='-']");
+for (let i = 0; i < numbers.length; i++) {
+    numbers[i].addEventListener("click", pushNumber);
+}
 
-//Fourth Row
-const one = document.querySelector("[value='1']");
-const two = document.querySelector("[value='2']");
-const three = document.querySelector("[value='3']");
-const plus = document.querySelector("[value='+']");
-
-//Fifth Row
-const zero = document.querySelector(".btn-lg");
-const decimal = document.querySelector(".decimal");
-const equals = document.querySelector(".equal-sign");
+for (let i = 0; i < numbers.length; i++) {
+    operators[i].addEventListener("click", pushOperator);
+}
