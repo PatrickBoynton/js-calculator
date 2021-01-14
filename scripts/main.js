@@ -1,7 +1,8 @@
 const input = document.querySelector("input");
+const clear = document.querySelector(".clear");
+
 const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operator");
-const clear = document.querySelector(".clear");
 
 function pushNumber(e) {
     if (e.target.value === 0) {
