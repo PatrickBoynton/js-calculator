@@ -22,3 +22,7 @@ for (let i = 0; i < numbers.length; i++) {
 for (let i = 0; i < operators.length; i++) {
     operators[i].addEventListener("click", pushOperator);
 }
+
+clear.addEventListener("click", (e) => {
+    input.value = "0";
+});
