@@ -5,7 +5,7 @@ const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operator");
 
 function pushNumber(e) {
-    if (e.target.value === 0) {
+    if (input.value === "0") {
         input.value = e.target.value;
     } else {
         input.value += e.target.value;
