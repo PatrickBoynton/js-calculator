@@ -51,4 +51,5 @@ decimal.addEventListener("click", (e) => {
     if (count < 2) {
         input.value = `${input.value}${e.target.value}`;
     }
+    count = 0;
 });
