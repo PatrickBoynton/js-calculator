@@ -13,7 +13,22 @@ function pushNumber(e) {
 }
 
 function pushOperator(e) {
-    alert(e.target.value);
+    switch (e.target.value) {
+        case "/":
+            console.log(`Pushed ${e.target.value}`);
+        break;
+        case "*":
+            console.log(`Pushed ${e.target.value}`);
+        break;
+        case "-":
+            console.log(`Pushed ${e.target.value}`);
+        break;
+        case "+":
+            console.log(`Pushed ${e.target.value}`);
+        break;
+        default:
+            console.log(`${e.target.value} is not an operator.`);
+    }
 }
 
 for (let i = 0; i < numbers.length; i++) {
