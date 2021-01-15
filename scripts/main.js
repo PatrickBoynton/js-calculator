@@ -7,14 +7,17 @@ const operators = document.querySelectorAll(".operator");
 
 //Checks the number of times the button was clicked.
 let clickCount = 0;
+let numsForMath = [];
 
 function pushNumber(e) {
     //Removes the 0 if it is the first number, else it just adds
     // whatever is next.
     if (input.value === "0") {
         input.value = e.target.value;
+        numsForMath.push(e.target.value);
     } else {
         input.value += e.target.value;
+        numsForMath.push(e.target.value);
     }
 }
 
@@ -31,6 +34,8 @@ function pushOperator(e) {
             console.log(`Pushed ${e.target.value}`);
             break;
         case "+":
+            input.value = "0";
+            console.log(numsForMath);
             break;
         default:
             console.log(`${e.target.value} is not an operator.`);
@@ -48,7 +53,9 @@ for (let i = 0; i < operators.length; i++) {
 
 clear.addEventListener("click", (e) => {
     clickCount = 0;
+    numsForMath = [];
     input.value = "0";
+    console.log(numsForMath);
 });
 
 decimal.addEventListener("click", (e) => {
