@@ -55,10 +55,14 @@ decimal.addEventListener("click", (e) => {
     clickCount = 0;
 });
 
-const add = function(x, y) {
+const add = function (x, y) {
     return x + y;
 }
 
 const subtract = function (x, y) {
     return x - y;
+}
+
+const multiply = function (x, y) {
+    return x * y;
 }
