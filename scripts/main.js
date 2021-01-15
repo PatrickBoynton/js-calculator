@@ -5,6 +5,9 @@ const decimal = document.querySelector(".decimal");
 const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operator");
 
+//Checks the number of times the button was clicked.
+let clickCount = 0;
+
 function pushNumber(e) {
     //Removes the 0 if it is the first number, else it just adds
     // whatever is next.
@@ -28,7 +31,6 @@ function pushOperator(e) {
             console.log(`Pushed ${e.target.value}`);
             break;
         case "+":
-            console.log(`Pushed ${e.target.value}`);
             break;
         default:
             console.log(`${e.target.value} is not an operator.`);
@@ -45,11 +47,9 @@ for (let i = 0; i < operators.length; i++) {
 }
 
 clear.addEventListener("click", (e) => {
+    clickCount = 0;
     input.value = "0";
 });
-
-//Checks the number of times the button was clicked.
-let clickCount = 0;
 
 decimal.addEventListener("click", (e) => {
     clickCount++;
@@ -57,9 +57,7 @@ decimal.addEventListener("click", (e) => {
     if (clickCount < 2) {
         input.value = `${input.value}${e.target.value}`;
     }
-    clickCount = 0;
 });
-
 // Math functions
 const add = function (x, y) {
     return x + y;
