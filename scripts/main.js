@@ -44,12 +44,17 @@ clear.addEventListener("click", (e) => {
     input.value = "0";
 });
 
-let count = 0;
+//Checks the number of times the button was clicked.
+let clickCount = 0;
 decimal.addEventListener("click", (e) => {
-    count++;
+    clickCount++;
 
-    if (count < 2) {
+    if (clickCount < 2) {
         input.value = `${input.value}${e.target.value}`;
     }
-    count = 0;
+    clickCount = 0;
 });
+
+const add = function(x, y) {
+    return x + y;
+}
