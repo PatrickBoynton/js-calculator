@@ -6,6 +6,8 @@ const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operator");
 
 function pushNumber(e) {
+    //Removes the 0 if it is the first number, else it just adds
+    // whatever is next.
     if (input.value === "0") {
         input.value = e.target.value;
     } else {
@@ -14,6 +16,7 @@ function pushNumber(e) {
 }
 
 function pushOperator(e) {
+    //Will perform mathematics based on the target operator.
     switch (e.target.value) {
         case "/":
             console.log(`Pushed ${e.target.value}`);
@@ -32,6 +35,7 @@ function pushOperator(e) {
     }
 }
 
+//Selects all of the buttons based on the query selector.
 for (let i = 0; i < numbers.length; i++) {
     numbers[i].addEventListener("click", pushNumber);
 }
@@ -46,6 +50,7 @@ clear.addEventListener("click", (e) => {
 
 //Checks the number of times the button was clicked.
 let clickCount = 0;
+
 decimal.addEventListener("click", (e) => {
     clickCount++;
 
