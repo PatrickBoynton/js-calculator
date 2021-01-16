@@ -23,8 +23,8 @@ function pushNumber(e) {
 
 
 function pushOperator(e) {
-    alert(e.target.value);
-   return e.target.value;
+    // alert(e.target.value);
+    calculation.push(e.target.value);
 }
 
 //Selects all of the buttons based on the query selector.
@@ -38,7 +38,9 @@ for (let i = 0; i < operators.length; i++) {
 
 clear.addEventListener("click", (e) => {
     clickCount = 0;
+    calculation = [];
     input.value = "0";
+    console.log(calculation);
 });
 
 // Works if more than 1 number is allowed by the calculator.
@@ -51,7 +53,34 @@ decimal.addEventListener("click", (e) => {
 });
 
 function calculate(e) {
-    alert(e.target.value);
+    let sum = 0;
+
+    for (let i = 0; i < calculation.length; i++) {
+        // Assumes that position 1 in the array will always be the operator.
+        switch (calculation[1]) {
+            case "+":
+                if (calculation[i] !== "+")
+                    console.log(sum += parseInt(calculation[i]));
+                break;
+            case "-":
+                sum = calculation[0];
+
+                if (calculation[i] !== "-")
+                    console.log(sum -= calculation[i]);
+                break;
+            case "*":
+                break;
+            case "/":
+                break;
+        }
+
+        // if (calculation[i] !== "*") {
+        //     sum = 1;
+        //
+        // }
+    }
+    console.log(sum);
+    input.value = String(sum);
 }
 
 equals.addEventListener("click", calculate)
