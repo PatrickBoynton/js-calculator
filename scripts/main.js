@@ -19,6 +19,7 @@ function pushNumber(e) {
 
 
 function pushOperator(e) {
+    alert(e.target.value);
 }
 
 //Selects all of the buttons based on the query selector.
