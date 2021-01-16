@@ -69,23 +69,19 @@ function calculate(e) {
             case "*":
                 sum = 1;
                 if (calculation[i] !== "*")
-                    console.log(sum *= calculation[i]);
+                    console.log(calculation[i]);
+                    console.log(sum = calculation[i] * calculation[i]);
                 break;
             case "/":
                 sum = calculation[0];
                 if (calculation[i] !== "/") {
-                    console.log(sum /= calculation[i]);
+                    sum /= calculation[i];
                 }
                 break;
         }
-
-        // if (calculation[i] !== "*") {
-        //     sum = 1;
-        //
-        // }
     }
-    console.log(sum);
     input.value = String(sum);
+    console.log(sum);
 }
 
 equals.addEventListener("click", calculate)
