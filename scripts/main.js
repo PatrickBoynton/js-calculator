@@ -13,9 +13,9 @@ let numsForMath = [];
 
 function pushNumber(e) {
     if (input.value === "0") {
+        input.value = e.target.value;numsForMath.push(parseInt(e.target.value));
+    } else {
         input.value = e.target.value;
-        numsForMath.push(parseInt(input.value));
-        console.log(e.target.value);
     }
 }
 
@@ -26,6 +26,7 @@ function switchOperators(e) {
                 for (let i = 0; i < numsForMath.length; i++) {
                     sum += numsForMath[i];
                 }
+                console.log(numsForMath);
                 console.log(sum);
                 break;
             case "-":
@@ -33,7 +34,7 @@ function switchOperators(e) {
                     sum -= numsForMath[i];
                 }
                 console.log(numsForMath);
-                console.log(sum);
+                console.log(Math.abs(sum));
                 break;
             case "*":
                 for (let i = 0; i < numsForMath.length; i++) {
