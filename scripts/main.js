@@ -13,10 +13,12 @@ let numsForMath = [];
 
 function pushNumber(e) {
     if (input.value === "0") {
-        input.value = e.target.value;numsForMath.push(parseInt(e.target.value));
+        input.value = e.target.value;
     } else {
         input.value = e.target.value;
     }
+    numsForMath.push(parseInt(e.target.value));
+    console.log(numsForMath);
 }
 
 function switchOperators(e) {
@@ -75,9 +77,10 @@ clear.addEventListener("click", (e) => {
     input.value = "0";
 });
 
+// Works if more than 1 number is allowed by the calculator.
 decimal.addEventListener("click", (e) => {
     clickCount++;
-
+    // Prevents more than one decimal from being added.
     if (clickCount < 2) {
         input.value = `${input.value}${e.target.value}`;
     }
