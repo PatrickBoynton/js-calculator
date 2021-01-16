@@ -4,42 +4,59 @@ const decimal = document.querySelector(".decimal");
 
 const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operator");
+const equals = document.querySelector(".equal-sign");
 
 //Checks the number of times the button was clicked.
 let clickCount = 0;
+let sum = 0;
 let numsForMath = [];
 
 function pushNumber(e) {
-    //Removes the 0 if it is the first number, else it just adds
-    // whatever is next.
     if (input.value === "0") {
         input.value = e.target.value;
-        numsForMath.push(e.target.value);
-    } else {
-        input.value += e.target.value;
-        numsForMath.push(e.target.value);
+        numsForMath.push(parseInt(input.value));
+        console.log(e.target.value);
+    }
+}
+
+function switchOperators(e) {
+    if (numsForMath.length > 0) {
+        switch (e.target.value) {
+            case "+":
+                for (let i = 0; i < numsForMath.length; i++) {
+                    sum += numsForMath[i];
+                }
+                console.log(sum);
+                break;
+            case "-":
+                for (let i = 0; i < numsForMath.length; i++) {
+                    sum -= numsForMath[i];
+                }
+                console.log(numsForMath);
+                console.log(sum);
+                break;
+            case "*":
+                for (let i = 0; i < numsForMath.length; i++) {
+                    sum *= numsForMath[i];
+                }
+                console.log(numsForMath);
+                console.log(sum);
+                break;
+            case "/":
+                for (let i = 0; i < numsForMath.length; i++) {
+                    sum /= numsForMath[i];
+                }
+                console.log(sum);
+                break;
+            default:
+                input.value = "Error";
+                break;
+        }
     }
 }
 
 function pushOperator(e) {
-    //Will perform mathematics based on the target operator.
-    switch (e.target.value) {
-        case "/":
-            console.log(`Pushed ${e.target.value}`);
-            break;
-        case "*":
-            console.log(`Pushed ${e.target.value}`);
-            break;
-        case "-":
-            console.log(`Pushed ${e.target.value}`);
-            break;
-        case "+":
-            input.value = "0";
-            console.log(numsForMath);
-            break;
-        default:
-            console.log(`${e.target.value} is not an operator.`);
-    }
+    switchOperators(e);
 }
 
 //Selects all of the buttons based on the query selector.
@@ -55,7 +72,6 @@ clear.addEventListener("click", (e) => {
     clickCount = 0;
     numsForMath = [];
     input.value = "0";
-    console.log(numsForMath);
 });
 
 decimal.addEventListener("click", (e) => {
@@ -65,19 +81,3 @@ decimal.addEventListener("click", (e) => {
         input.value = `${input.value}${e.target.value}`;
     }
 });
-// Math functions
-const add = function (x, y) {
-    return x + y;
-}
-
-const subtract = function (x, y) {
-    return x - y;
-}
-
-const multiply = function (x, y) {
-    return x * y;
-}
-
-const divide = function (x, y) {
-    return x / y;
-}
