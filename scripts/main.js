@@ -18,7 +18,6 @@ function pushNumber(e) {
     }
 
     calculation.push(parseInt(e.target.value));
-    console.log(calculation);
 }
 
 
@@ -40,7 +39,6 @@ clear.addEventListener("click", (e) => {
     clickCount = 0;
     calculation = [];
     input.value = "0";
-    console.log(calculation);
 });
 
 // Works if more than 1 number is allowed by the calculator.
@@ -69,8 +67,15 @@ function calculate(e) {
                     console.log(sum -= calculation[i]);
                 break;
             case "*":
+                sum = 1;
+                if (calculation[i] !== "*")
+                    console.log(sum *= calculation[i]);
                 break;
             case "/":
+                sum = calculation[0];
+                if (calculation[i] !== "/") {
+                    console.log(sum /= calculation[i]);
+                }
                 break;
         }
 
