@@ -8,6 +8,7 @@ const equals = document.querySelector(".equal-sign");
 
 //Checks the number of times the button was clicked.
 let clickCount = 0;
+let calculation = [];
 
 function pushNumber(e) {
     if (input.value === "0") {
@@ -15,11 +16,15 @@ function pushNumber(e) {
     } else {
         input.value = e.target.value;
     }
+
+    calculation.push(parseInt(e.target.value));
+    console.log(calculation);
 }
 
 
 function pushOperator(e) {
     alert(e.target.value);
+   return e.target.value;
 }
 
 //Selects all of the buttons based on the query selector.
@@ -45,6 +50,8 @@ decimal.addEventListener("click", (e) => {
     }
 });
 
-equals.addEventListener("click", (e) => {
-    console.log("Clicked!");
-})
+function calculate(e) {
+    alert(e.target.value);
+}
+
+equals.addEventListener("click", calculate)
