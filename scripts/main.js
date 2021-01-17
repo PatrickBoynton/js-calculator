@@ -2,22 +2,26 @@ const input = document.querySelector("input");
 const clear = document.querySelector(".clear");
 const decimal = document.querySelector(".decimal");
 const minus = document.querySelector(".plus-minus");
-const numbers = document.querySelectorAll(".number");
-const operators = document.querySelectorAll(".operator");
 const equals = document.querySelector(".equal-sign");
 const percent = document.querySelector(".percent");
+
+const numbers = document.querySelectorAll(".number");
+const operators = document.querySelectorAll(".operator");
 
 //Checks the number of times the button was clicked.
 let clickCount = 0;
 let calculation = [];
 
+function setAndPush(e) {
+    input.value = e.target.value;
+    calculation.push(parseFloat(e.target.value));
+}
+
 function pushNumber(e) {
     if (input.value === "0") {
-        input.value = e.target.value;
-        calculation.push(parseFloat(e.target.value));
+        setAndPush(e);
     } else {
-        input.value = e.target.value;
-        calculation.push(parseFloat(e.target.value));
+        setAndPush(e);
     }
 }
 
@@ -52,7 +56,7 @@ decimal.addEventListener("click", (e) => {
     }
 });
 
-function calculate(e) {
+function calculate() {
     let sum = 0;
 
     for (let i = 0; i < calculation.length; i++) {
