@@ -13,11 +13,15 @@ let calculation = [];
 function pushNumber(e) {
     if (input.value === "0") {
         input.value = e.target.value;
-    } else {
+    } else if(input.value.indexOf(".") > -1) {
+        input.value += e.target.value;
+        console.log(calculation);
+    }
+    else {
         input.value = e.target.value;
     }
 
-    calculation.push(parseInt(e.target.value));
+    calculation.push(parseInt(input.value));
 }
 
 
@@ -82,4 +86,4 @@ function calculate(e) {
     input.value = String(sum);
 }
 
-equals.addEventListener("click", calculate)
+equals.addEventListener("click", calculate);
