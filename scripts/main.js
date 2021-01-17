@@ -13,13 +13,12 @@ let calculation = [];
 function pushNumber(e) {
     if (input.value === "0") {
         input.value = e.target.value;
+        calculation.push(parseFloat(e.target.value));
     } else {
         input.value = e.target.value;
+        calculation.push(parseFloat(e.target.value));
     }
-    if(e.target.classList.contains("operator")) {
-        console.log("Math button!");
-    }
-    calculation.push(parseFloat(input.value));
+    // calculation.push(parseFloat(input.value));
     console.log(input.value);
 }
 
@@ -92,11 +91,17 @@ equals.addEventListener("click", calculate);
 minus.addEventListener("click", (e) => {
     // So that zero won't be made negative.
     if (input.value.indexOf("-") < 0 && input.value !== "0") {
-        input.value = `${parseFloat(input.value )* -1}`;
+        input.value = `${parseFloat(input.value) * -1}`;
         console.log(input.value);
-        calculation.shift();
-        calculation.push(parseFloat(input.value));
+        //Loops over the calculation array and pops anything greater than 0.
+        for (let i = 0; i < calculation.length; i++) {
+            if (calculation[i] > 0) {
+                calculation.pop();
+                calculation.push(parseFloat(input.value));
+            }
+        }
+
     } else {
-        input.value = `${parseFloat(input.value )* -1}`;
+        input.value = `${parseFloat(input.value) * -1}`;
     }
 });
