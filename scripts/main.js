@@ -103,5 +103,11 @@ minus.addEventListener("click", (e) => {
 
     } else {
         input.value = `${parseFloat(input.value) * -1}`;
+        for (let i = 0; i <calculation.length; i++) {
+            if (calculation[i] < 0) {
+                calculation.pop();
+                calculation.push(parseFloat(input.value));
+            }
+        }
     }
 });
