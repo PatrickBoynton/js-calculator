@@ -58,19 +58,18 @@ function calculate(e) {
         switch (calculation[1]) {
             case "+":
                 if (calculation[i] !== "+")
-                    console.log(sum += parseInt(calculation[i]));
+                    sum += parseInt(calculation[i]);
                 break;
             case "-":
                 sum = calculation[0];
 
                 if (calculation[i] !== "-")
-                    console.log(sum -= calculation[i]);
+                    sum -= calculation[i];
                 break;
             case "*":
                 sum = 1;
                 if (calculation[i] !== "*")
-                    console.log(calculation[i]);
-                    console.log(sum = calculation[i] * calculation[i]);
+                    sum = calculation[i] * calculation[i]
                 break;
             case "/":
                 sum = calculation[0];
@@ -81,7 +80,6 @@ function calculate(e) {
         }
     }
     input.value = String(sum);
-    console.log(sum);
 }
 
 equals.addEventListener("click", calculate)
