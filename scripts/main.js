@@ -1,7 +1,7 @@
 const input = document.querySelector("input");
 const clear = document.querySelector(".clear");
 const decimal = document.querySelector(".decimal");
-
+const minus = document.querySelector(".plus-minus");
 const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operator");
 const equals = document.querySelector(".equal-sign");
@@ -13,15 +13,12 @@ let calculation = [];
 function pushNumber(e) {
     if (input.value === "0") {
         input.value = e.target.value;
-    } else if(input.value.indexOf(".") > -1) {
-        input.value += e.target.value;
-        console.log(calculation);
-    }
-    else {
+    } else {
         input.value = e.target.value;
     }
 
-    calculation.push(parseInt(input.value));
+    calculation.push(parseFloat(input.value));
+    console.log(input.value);
 }
 
 
@@ -61,8 +58,9 @@ function calculate(e) {
         // Assumes that position 1 in the array will always be the operator.
         switch (calculation[1]) {
             case "+":
-                if (calculation[i] !== "+")
-                    sum += parseInt(calculation[i]);
+                if (calculation[i] !== "+") {
+                    sum += parseFloat(calculation[i]);
+                }
                 break;
             case "-":
                 sum = calculation[0];
@@ -83,7 +81,18 @@ function calculate(e) {
                 break;
         }
     }
+    console.log(calculation);
     input.value = String(sum);
 }
 
 equals.addEventListener("click", calculate);
+
+minus.addEventListener("click", (e) => {
+    // So that zero won't be made negative.
+    if (input.value.indexOf("-") < 0 && input.value !== "0") {
+        input.value = `${parseFloat(input.value )* -1}`;
+        console.log(input.value);
+    } else {
+        input.value = `${parseFloat(input.value )* -1}`;
+    }
+});
