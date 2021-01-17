@@ -64,7 +64,7 @@ function calculate() {
         switch (calculation[1]) {
             case "+":
                 if (calculation[i] !== "+") {
-                    sum += parseFloat(calculation[i]);
+                    sum += calculation[i];
                 }
                 break;
             case "-":
@@ -76,7 +76,7 @@ function calculate() {
             case "*":
                 sum = 1;
                 if (calculation[i] !== "*")
-                    sum = calculation[i] * calculation[i]
+                    sum *= calculation[i];
                 break;
             case "/":
                 sum = calculation[0];
@@ -118,5 +118,6 @@ minus.addEventListener("click", (e) => {
 
 percent.addEventListener("click", (e) => {
     calculation.pop();
-    calculation.push(Number(input.value / 100));
+    input.value = Number(input.value / 100).toString();
+    calculation.push(Number(input.value));
 });
