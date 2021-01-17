@@ -19,8 +19,6 @@ function pushNumber(e) {
         input.value = e.target.value;
         calculation.push(parseFloat(e.target.value));
     }
-    // calculation.push(parseFloat(input.value));
-    console.log(input.value);
 }
 
 
@@ -84,7 +82,6 @@ function calculate(e) {
                 break;
         }
     }
-    console.log(calculation);
     input.value = String(sum);
 }
 
@@ -116,8 +113,6 @@ minus.addEventListener("click", (e) => {
 });
 
 percent.addEventListener("click", (e) => {
-    console.log(Number(input.value / 100));
     calculation.pop();
     calculation.push(Number(input.value / 100));
-    console.log(calculation);
 });
