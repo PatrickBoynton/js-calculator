@@ -7,7 +7,7 @@ const percent = document.querySelector(".percent");
 
 const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operator");
-
+//This whole thing only works with single digits currently.
 //Checks the number of times the button was clicked.
 let clickCount = 0;
 let calculation = [];
