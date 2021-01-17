@@ -16,7 +16,9 @@ function pushNumber(e) {
     } else {
         input.value = e.target.value;
     }
-
+    if(e.target.classList.contains("operator")) {
+        console.log("Math button!");
+    }
     calculation.push(parseFloat(input.value));
     console.log(input.value);
 }
@@ -92,6 +94,8 @@ minus.addEventListener("click", (e) => {
     if (input.value.indexOf("-") < 0 && input.value !== "0") {
         input.value = `${parseFloat(input.value )* -1}`;
         console.log(input.value);
+        calculation.shift();
+        calculation.push(parseFloat(input.value));
     } else {
         input.value = `${parseFloat(input.value )* -1}`;
     }
