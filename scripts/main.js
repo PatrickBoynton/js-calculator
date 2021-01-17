@@ -5,6 +5,7 @@ const minus = document.querySelector(".plus-minus");
 const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operator");
 const equals = document.querySelector(".equal-sign");
+const percent = document.querySelector(".percent");
 
 //Checks the number of times the button was clicked.
 let clickCount = 0;
@@ -29,6 +30,7 @@ function pushOperator(e) {
 }
 
 //Selects all of the buttons based on the query selector.
+//I came up with this after hints in class.
 for (let i = 0; i < numbers.length; i++) {
     numbers[i].addEventListener("click", pushNumber);
 }
@@ -103,11 +105,19 @@ minus.addEventListener("click", (e) => {
 
     } else {
         input.value = `${parseFloat(input.value) * -1}`;
-        for (let i = 0; i <calculation.length; i++) {
+        //Pops off any element less than 0.
+        for (let i = 0; i < calculation.length; i++) {
             if (calculation[i] < 0) {
                 calculation.pop();
                 calculation.push(parseFloat(input.value));
             }
         }
     }
+});
+
+percent.addEventListener("click", (e) => {
+    console.log(Number(input.value / 100));
+    calculation.pop();
+    calculation.push(Number(input.value / 100));
+    console.log(calculation);
 });
